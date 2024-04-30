@@ -14,17 +14,19 @@ public class SYS20211231_mid {
     }
     //입력값 예외처리 - min, max 범위X and 숫자가 아닐 경우 -1 반환
     public static int checkUser(String lineinput, int min, int max) {
+        //int 변환 불가 시 예외처리를 통해 에러 출력
         try{
             int userChoice = Integer.parseInt(lineinput); //int로 변환
             //범위 지정
+            //범위 이탈 시 에러 출력
             if (userChoice < min || userChoice > max) {
-                System.out.println("[ERROR] 0, 1, 2 중 하나를 입력해주세요.");
+                System.out.printf("[ERROR] %d ~ %d 중 하나를 입력해주세요.\n", min, max);
                 return -1;
             }
             return userChoice;
         } //예외처리
         catch(Exception e){
-            System.out.println("[ERROR] 0, 1, 2 중 하나를 입력해주세요.");
+            System.out.printf("[ERROR] %d ~ %d 중 하나를 입력해주세요.\n", min, max);
             return -1;
         }
     }
@@ -70,7 +72,7 @@ public class SYS20211231_mid {
     public static void gamePlay()
     {
         printHead(); //시작문구 출력
-        int result = winnerDetermine(getInput(0,2));
+        int result = winnerDetermine(getInput(0,2)); //승리변수 저장
         if(result == 1) {
             System.out.println("승리");
         }

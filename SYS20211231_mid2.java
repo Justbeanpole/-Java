@@ -1,6 +1,4 @@
 import java.util.Scanner;
-
-
 public class SYS20211231_mid2 {
     //게임 타이틀, 선택지 출력
     public static void printHead() {

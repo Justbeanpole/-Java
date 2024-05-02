@@ -10,20 +10,16 @@ public class SYS20211231_mid2 {
                 """);
         System.out.println("0.가위 1.바위 2.보 중 하나 선택해주세요");
     }
+
     //첫 선공 가위바위보 게임
     public static int rspGame() {
         SYS20211231_mid sys = new SYS20211231_mid(); //가위바위보 객체생성(메서드 활용을 위해)
-        int result; // 1 : 승리, 0 : 무승부 -1 : 패배, 확인 변수
-        while (true) {
-            result = sys.winnerDetermine(sys.getInput(0, 2)); //함수를 통해 승리 변수 대입
-            //승리 및 패배 시 반복문 탈출 그러나 무승부 시 가위바위보 재개
-            if (result != 0) {
-                break;
-            }
-            else {
-                System.out.println("무승부");
-                System.out.println("다시 입력해주세요 - 0.가위 1.바위 2.보");
-            }
+        int result = sys.winnerDetermine(sys.getInput(0, 2));// 1 : 승리, 0 : 무승부 -1 : 패배, 확인 변수
+        //무승부 일 경우 반복
+        while (result == 0) {
+            System.out.println("무승부");
+            System.out.println("다시 입력해주세요 - 0.가위 1.바위 2.보");
+            result = sys.winnerDetermine(sys.getInput(0, 2));
         }
         return result;
     }
@@ -35,8 +31,7 @@ public class SYS20211231_mid2 {
             //승리변수를 통해 공격 및 수비 여부 출력
             if (detatt == 1) {
                 System.out.println("공격입니다.");
-            }
-            else {
+            } else {
                 System.out.println("수비입니다.");
             }
             System.out.println("무엇을 내시겠습니까?");
@@ -67,7 +62,7 @@ public class SYS20211231_mid2 {
 
     public static void main(String[] args) {
         boolean cont = true; //cont값 초기화
-        while(cont) {
+        while (cont) {
             gameplay();
             cont = SYS20211231_mid.oneMore(); //한번 더?
         }

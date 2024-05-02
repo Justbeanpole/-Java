@@ -28,7 +28,7 @@ public class SYS20211231_mid2 {
         return result;
     }
 
-    static void mjpGame() {
+    public static void mjpGame() {
         SYS20211231_mid sys = new SYS20211231_mid();
         int detatt = rspGame(); //승리변수 대입
         while (true) {

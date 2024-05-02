@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class SYS20211231_mid2 {
     //게임 타이틀, 선택지 출력
     public static void printHead() {
@@ -11,16 +12,15 @@ public class SYS20211231_mid2 {
     }
     //첫 선공 가위바위보 게임
     public static int rspGame() {
-        SYS20211231_mid sys = new SYS20211231_mid(); //가위바위보 함수 객체생성
+        SYS20211231_mid sys = new SYS20211231_mid(); //가위바위보 객체생성(메서드 활용을 위해)
         int result; // 1 : 승리, 0 : 무승부 -1 : 패배, 확인 변수
         while (true) {
             result = sys.winnerDetermine(sys.getInput(0, 2)); //함수를 통해 승리 변수 대입
             //승리 및 패배 시 반복문 탈출 그러나 무승부 시 가위바위보 재개
-            if (result == 1) {
+            if (result != 0) {
                 break;
-            } else if (result == -1) {
-                break;
-            } else {
+            }
+            else {
                 System.out.println("무승부");
                 System.out.println("다시 입력해주세요 - 0.가위 1.바위 2.보");
             }

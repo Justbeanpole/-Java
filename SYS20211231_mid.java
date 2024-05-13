@@ -1,10 +1,9 @@
 import java.util.Scanner;
 import java.util.Random;
 
-
 public class SYS20211231_mid {
     //타이틀 출력
-    public static void printHead() {
+    void printHead() {
         System.out.print("""
             ------------------------------
                      가위바위보 게임
@@ -13,7 +12,7 @@ public class SYS20211231_mid {
         System.out.println("0.가위 1.바위 2.보 중 하나 선택해주세요");
     }
     //입력값 예외처리 - min, max 범위X and 숫자가 아닐 경우 -1 반환
-    public static int checkUser(String lineinput, int min, int max) {
+    int checkUser(String lineinput, int min, int max) {
         //int 변환 불가 시 예외처리를 통해 에러 출력
         try{
             int userChoice = Integer.parseInt(lineinput); //int로 변환
@@ -31,7 +30,7 @@ public class SYS20211231_mid {
         }
     }
     //입력받기
-    public static int getInput(int min, int max){
+    int getInput(int min, int max){
         Scanner sc = new Scanner(System.in); //Scanner 객체 생성
         System.out.print("입력 : ");
         int input = checkUser(sc.nextLine(), min, max);
@@ -43,7 +42,7 @@ public class SYS20211231_mid {
         return input;
     }
     //승자 결정
-    public static int winnerDetermine(int userChoice){
+    int winnerDetermine(int userChoice){
         Random r = new Random(); //Random 객체 생성
         int computer = r.nextInt(3); //computer변수 0,1,2 무작위 선택
         String [] iswhat = {"가위", "바위", "보"};
@@ -56,7 +55,7 @@ public class SYS20211231_mid {
         return wCondition[userChoice][computer];
     }
     //재시작 여부
-    public static boolean oneMore()
+    boolean oneMore()
     {
         System.out.println("계속 하시겠습니까? 1.계속, 2.종료");
         int input = getInput(1,2); //1,2만 입력 가능
@@ -69,7 +68,7 @@ public class SYS20211231_mid {
         }
     }
     //게임 플레이
-    public static void gamePlay()
+    void gamePlay()
     {
         printHead(); //시작문구 출력
         int result = winnerDetermine(getInput(0,2)); //승리변수 저장
@@ -85,10 +84,11 @@ public class SYS20211231_mid {
     }
     //main
     public static void main(String[] args) {
+        SYS20211231_mid ob = new SYS20211231_mid();
         boolean cont = true; //cont값 초기화
         while(cont) {
-            gamePlay();
-            cont = oneMore();
+            ob.gamePlay();
+            cont = ob.oneMore();
         }
     }
 }

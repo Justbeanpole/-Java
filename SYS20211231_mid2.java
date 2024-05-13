@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
-public class SYS20211231_mid2 {
+public class SYS20211231_mid2 extends SYS20211231_mid {
     //게임 타이틀, 선택지 출력
-    public static void printHead() {
+    @Override
+    void printHead() {
         System.out.print("""
                 ------------------------------
                            묵찌빠 게임
@@ -12,20 +13,20 @@ public class SYS20211231_mid2 {
     }
 
     //첫 선공 가위바위보 게임
-    public static int rspGame() {
-        SYS20211231_mid sys = new SYS20211231_mid(); //가위바위보 객체생성(메서드 활용을 위해)
-        int result = sys.winnerDetermine(sys.getInput(0, 2));// 1 : 승리, 0 : 무승부 -1 : 패배, 확인 변수
+    int rspGame() {
+        int result = winnerDetermine(getInput(0, 2));// 1 : 승리, 0 : 무승부 -1 : 패배, 확인 변수
         //무승부 일 경우 반복
         while (result == 0) {
             System.out.println("무승부");
             System.out.println("다시 입력해주세요 - 0.가위 1.바위 2.보");
-            result = sys.winnerDetermine(sys.getInput(0, 2));
+            result = winnerDetermine(getInput(0, 2));
         }
         return result;
     }
 
-    public static void mjpGame() {
-        SYS20211231_mid sys = new SYS20211231_mid();
+    @Override
+    void gamePlay() {
+        printHead();
         int detatt = rspGame(); //승리변수 대입
         while (true) {
             //승리변수를 통해 공격 및 수비 여부 출력
@@ -35,7 +36,7 @@ public class SYS20211231_mid2 {
                 System.out.println("수비입니다.");
             }
             System.out.println("무엇을 내시겠습니까?");
-            int result = sys.winnerDetermine(sys.getInput(0, 2)); //공격수비 묵찌빠 변수 입력
+            int result = winnerDetermine(getInput(0, 2)); //공격수비 묵찌빠 변수 입력
             //공격 시 사용자와 컴퓨터가 낸 값이 같다면 승리
             if (detatt == 1) {
                 if (result == 0) {
@@ -55,16 +56,12 @@ public class SYS20211231_mid2 {
         }
     }
 
-    public static void gameplay() {
-        printHead();
-        mjpGame();
-    }
-
     public static void main(String[] args) {
+        SYS20211231_mid2 ob = new SYS20211231_mid2();
         boolean cont = true; //cont값 초기화
         while (cont) {
-            gameplay();
-            cont = SYS20211231_mid.oneMore(); //한번 더?
+            ob.gamePlay();
+            cont = ob.oneMore(); //한번 더?
         }
     }
 }

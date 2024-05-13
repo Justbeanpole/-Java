@@ -55,11 +55,11 @@ public class SYS20211231_mid2 extends SYS20211231_mid {
     }
 
     public static void main(String[] args) {
-        SYS20211231_mid2 ob = new SYS20211231_mid2();
+        SYS20211231_mid2 mjp = new SYS20211231_mid2();
         boolean cont = true; //cont값 초기화
         while (cont) {
-            ob.gamePlay();
-            cont = ob.oneMore(); //한번 더?
+            mjp.gamePlay();
+            cont = mjp.oneMore(); //한번 더?
         }
     }
 }

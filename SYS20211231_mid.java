@@ -84,11 +84,11 @@ public class SYS20211231_mid {
     }
     //main
     public static void main(String[] args) {
-        SYS20211231_mid ob = new SYS20211231_mid();
+        SYS20211231_mid rsp = new SYS20211231_mid();
         boolean cont = true; //cont값 초기화
         while(cont) {
-            ob.gamePlay();
-            cont = ob.oneMore();
+            rsp.gamePlay();
+            cont = rsp.oneMore();
         }
     }
 }
